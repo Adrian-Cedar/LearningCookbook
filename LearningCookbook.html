@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Learning Cookbook</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  display: inline-block;
+  border: 1px solid black;
+  height: 300px;
+  width: 200px;
+  background-color: #00cccc;
+  box-shadow: 10px 10px 10px lightblue;
+  margin: 20px;
+  padding: 20px;
+
+  font-size: xx-large;
+  vertical-align: middle;
+  position: relative;
+}
+
+.card-next {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>The Learning Cookbook</h1>
+
+<p>Thought experiments for educational designers</p>
+<p>Flip a card and start brainstorming or puruse a category of interest and apply it to your task at hand.</p>
+
+<br>
+<div>
+  <div class="card">
+    <div id="activity">
+      Create an Activity
+    </div>
+    <a class="card-next" onclick="changeActivity()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+  <div class="card">
+    <div id="technique">
+    With a Teaching Technique
+    </div>
+    <a class="card-next" onclick="changeTechnique()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+  <div class="card">
+    <div id="access">
+      To be Accessible
+    </div>
+    <a class="card-next" onclick="changeAccess()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+</div>
+<div>
+  <div class="card">
+    <div id="student">
+    For students
+  </div>
+  <a class="card-next" onclick="changeStudents()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+  <div class="card">
+    <div id="wants">
+    Who have preferences
+  </div>
+  <a class="card-next" onclick="changeWants()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+  <div class="card">
+<div id="objective">
+    To meet a learning objective
+  </div>
+  <a class="card-next" onclick="changeObjective()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+</div>
+
+<a onclick="changeAll()" style="border:1px solid black; margin:20px; padding:20px;">Change All <img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+
+<script>
+const activities = [
+  'Create a problem-based activity',
+  'Create a game',
+  'Create a system',
+  'Create an app',
+  'Create something for the future',
+  'Create a medium',
+  'Create a vehicle',
+  'Create a tool',
+  'Create a toy',
+  'Create a device',
+  'Create an assessment',
+  'Create discussion prompts',
+  'Create a relay',
+  'Create a competition',
+  'Create a gallery'
+  ];
+
+const techniques = [
+  'With a variable reward',
+  'With a trigger-action-reward cycle',
+  'With cooperation',
+  'With opportunity for self-organization',
+  'With opportunity for free play',
+  'With scaffolding',
+  'With a surprise',
+  'With instant feedback',
+  'With an invitation to participate',
+  'With the use of characters',
+  'With a ritual',
+  'With deception',
+  'With an edge to overcome',
+  'With eliciting flow',
+  'With visible learning'
+  ];
+
+const accesibilities = [
+  'Solely in-person',
+  'Using only audio',
+  'Using only visuals ',
+  'Conducted completely remotely',
+  'Completed within a ten minute session',
+  'Involving multiple session over days',
+  'Including in-person and remote instances',
+  'Without using digital technology',
+  'Where allowing empty time is fundamental',
+  'Addressing discriminatory contingency cues (i.e. is diversity valued)',
+  'Addressing discriminatory prejudices',
+  'That costs less than $1 / student in materials',
+  'To maximize participation / minimize moments of sole observations',
+  'To be done in a public setting, with onlookers',
+  'To appeal to a 4 minute timespan'
+  ];
+
+const students = [
+  'For more than 1000 people',
+  'For high energy kids',
+  'For elderly people',
+  'For adolescents',
+  'For entrepreneurs',
+  'For executives',
+  'For diplomats',
+  'For architects',
+  'For complete beginners',
+  'For experts'
+  ];
+
+const wants = [
+  'Who want to be together with people',
+  'Who want to be comfortable',
+  'Who want to enjoy the challenge of a new experience',
+  'Who want to find an opportunity to learn',
+  'Who want to do something active',
+  'Who want to seek meaning - to know why',
+  'Who want to seek information and facts - to know what',
+  'Who want to problem-solve - to know ‘how-it-works’',
+  'Who want to self discover/ to trial-and-error - to know ‘what if’'
+  ];
+
+const objectives = [
+  'To develop meta-cognitive skills',
+  'To regulate emotions and motivations during the learning process',
+  'To set higher specific and personal goals, and monitor them',
+  'To identify fake news',
+  'To reduce waste',
+  'To save the environment',
+  'To survive the zombie apocalypse',
+  'To break the ice',
+  'To describe how artists use things to create and communicate',
+  'To recognize the positives and negatives of personal and public digital identities',
+  'To improve writing skills',
+  'To connect mathematical concepts to other areas and personal interests',
+  'To analyze connections between eating, physical activity, and mental well-being',
+  'To outline basic structures and functions of the human body',
+  'To understand how natural resources continue to shape the economy'
+  ];
+
+activityBlock = document.getElementById('activity');
+techniqueBlock = document.getElementById('technique');
+accessBlock = document.getElementById('access');
+studentBlock = document.getElementById('student');
+wantsBlock = document.getElementById('wants');
+objectiveBlock = document.getElementById('objective');
+
+function changeActivity() {
+  activityBlock.parentElement.style.background='#cff';
+  var randomNumber = Math.floor(Math.random()*(activities.length));
+  activityBlock.innerHTML = activities[randomNumber];
+}
+
+function changeTechnique() {
+  techniqueBlock.parentElement.style.background='#cff';
+  var randomNumber = Math.floor(Math.random()*(techniques.length));
+  techniqueBlock.innerHTML = techniques[randomNumber];
+}
+
+function changeAccess() {
+  accessBlock.parentElement.style.background='#cff';
+  var randomNumber = Math.floor(Math.random()*(accesibilities.length));
+  accessBlock.innerHTML = accesibilities[randomNumber];
+}
+
+function changeStudents() {
+  studentBlock.parentElement.style.background='#cff';
+  var randomNumber = Math.floor(Math.random()*(students.length));
+  studentBlock.innerHTML = students[randomNumber];
+}
+
+function changeWants() {
+  wantsBlock.parentElement.style.background='#cff';
+  var randomNumber = Math.floor(Math.random()*(wants.length));
+  wantsBlock.innerHTML = wants[randomNumber];
+}
+
+function changeObjective() {
+  objectiveBlock.parentElement.style.background='#cff';
+  var randomNumber = Math.floor(Math.random()*(objectives.length));
+  objectiveBlock.innerHTML = objectives[randomNumber];
+}
+
+function changeAll() {
+  changeActivity();
+  changeTechnique();
+  changeAccess();
+  changeStudents();
+  changeWants();
+  changeObjective();
+}
+
+</script>
+
+</body>
+</html>
