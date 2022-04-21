@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>The Learning Cookbook</title>
+<title>Experience Wildcards</title>
 
 <style>
 body {
   font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 .card {
@@ -28,31 +29,70 @@ body {
   bottom: 0;
   right: 10px;
 }
+
+.card-name {
+  display: block;
+  font-size: small;
+  position: relative;
+  top: -40px;
+  font-style: italic;
+}
 </style>
 
 </head>
 <body>
 
-<h1>The Learning Cookbook</h1>
+<h1>Experience Wildcards</h1>
+<h3>Prompt wild and creative methods to connect with your audience</h3>
+<p>These cards are a series of prompts to help you think differently about person-centred design.
+  Prompts will challenge your thinking from the medium to the message, techniques, and so-on.</p>
 
-<p>Thought experiments for educational designers</p>
-<p>Flip a card and start brainstorming or puruse a category of interest and apply it to your task at hand.</p>
+<div style="height:30px;"></div>
 
-<br>
+<div style="text-align:left; margin: 0 20%;">
+  <p style="margin-left:20px;"><strong>HOW-TO</strong></p>
+  <p>There are two ways to use Experience Wildcards.<p>
+    <ol>
+      <li>
+        <strong>Play it as a Game.</strong>
+        <p>Flip all six cards and brainstorm a solution to the card spread. TAKE YOUR TIME, as it is not easy.<br>
+          If you don't like one of your cards, replace it with a new one by clicking the arrow in the bottom right corner of the card.</p>
+      </li>
+      <li>
+        <strong>Reference it Amidst Your Design Process</strong>
+        <p>During your design process, you may need a wildcard to prompt your thinking.
+          It may be beneficial to pull a card in a certain category to help you think differently about your task at hand.
+          If you need to check accessibility of your experience, draw card from the "To be Accessible" stack and brainstorm your prompt.
+          Or, consider all groups of people from the "For Students" stack.
+        </p>
+      </li>
+    </ol>
+    <p>Most importantly, have fun and let the ideas flow freely.</p>
+</div>
+
+<div style="height:50px";></div>
+<a onclick="changeAll()" style="border:1px solid black; margin:20px; padding:20px;">
+  Flip All Cards
+  <img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px" style="vertical-align: middle;">
+</a>
+<div style="height:100px;"></div>
 <div>
   <div class="card">
+    <div class="card-name">Create an Activity</div>
     <div id="activity">
       Create an Activity
     </div>
     <a class="card-next" onclick="changeActivity()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
   </div>
   <div class="card">
+    <div class="card-name">With a Teaching Technique</div>
     <div id="technique">
     With a Teaching Technique
     </div>
     <a class="card-next" onclick="changeTechnique()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
   </div>
   <div class="card">
+    <div class="card-name">To be Accessible</div>
     <div id="access">
       To be Accessible
     </div>
@@ -61,30 +101,41 @@ body {
 </div>
 <div>
   <div class="card">
+    <div class="card-name">For Students</div>
     <div id="student">
-    For students
+    For Students
   </div>
   <a class="card-next" onclick="changeStudents()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
   </div>
   <div class="card">
+    <div class="card-name">Who have Preferences</div>
     <div id="wants">
-    Who have preferences
+    Who have Preferences
   </div>
   <a class="card-next" onclick="changeWants()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
   </div>
   <div class="card">
-<div id="objective">
-    To meet a learning objective
+    <div class="card-name">To meet a Learning Objective</div>
+    <div id="objective">
+    To meet a Learning Objective
   </div>
   <a class="card-next" onclick="changeObjective()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
   </div>
 </div>
 
-<a onclick="changeAll()" style="border:1px solid black; margin:20px; padding:20px;">Change All <img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+<div style="height:200px";></div>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc5N95Z0ZJmwyyhdNyCXVQmB1CeWP-gse6TnmYxHWVyTdoZpw/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
 
 <div style="height:100px;"></div>
-<a style="margin:20px;" href="https://agranchelli.wordpress.com/learning-cookbook/">Learn About Its Development here</a>
-  
+<p>
+  Version 0.2 //
+  Developed by Adrian Granchelli //
+  2022
+</p>
+<a style="margin:20px;" href="https://agranchelli.wordpress.com/learning-cookbook/">Learn about the development of Version 0.1 here</a>
+<div style="height:100px;"></div>
+
 <script>
 const activities = [
   'Create a problem-based activity',
