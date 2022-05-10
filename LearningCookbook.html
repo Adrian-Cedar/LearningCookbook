@@ -14,7 +14,6 @@ body {
   border: 1px solid black;
   height: 300px;
   width: 200px;
-  background-color: #00cccc;
   box-shadow: 10px 10px 10px lightblue;
   margin: 20px;
   padding: 20px;
@@ -22,6 +21,22 @@ body {
   font-size: xx-large;
   vertical-align: middle;
   position: relative;
+}
+
+.context {
+  background-color: #00cccc;
+}
+
+.context-title {
+  color: #00cccc;
+}
+
+.spice {
+  background-color: #43DB52;
+}
+
+.spice-title {
+  color: #43DB52;
 }
 
 .card-next {
@@ -36,7 +51,29 @@ body {
   position: relative;
   top: -40px;
   font-style: italic;
+  width: 220px;
+  left: -10px;
 }
+
+.cat_names {
+  transform: rotate(-90deg);
+  position: absolute;
+  margin: 0;
+}
+
+.flip-new-cats {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 10px;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+}
+
+.flip-new-cats div, .flip-new-cats img {
+  display: inline-block;
+}
+
 </style>
 
 </head>
@@ -51,7 +88,7 @@ body {
 
 <div style="text-align:left; margin: 0 20%;">
   <p style="margin-left:20px;"><strong>HOW-TO</strong></p>
-  <p>There are two ways to use Experience Wildcards.<p>
+  <p>There are at least two ways to use Experience Wildcards.<p>
     <ol>
       <li>
         <strong>Play it as a Game.</strong>
@@ -61,9 +98,9 @@ body {
       <li>
         <strong>Reference it Amidst Your Design Process</strong>
         <p>During your design process, you may need a wildcard to prompt your thinking.
-          It may be beneficial to pull a card in a certain category to help you think differently about your task at hand.
-          If you need to check accessibility of your experience, draw card from the "To be Accessible" stack and brainstorm your prompt.
-          Or, consider all groups of people from the "For Students" stack.
+          It may be beneficial to pull a card in a certain category (usually from the 'Considerations' stacks) to help you think differently about your task at hand.
+          If you need to check accessibility of your experience, draw card from the "While Adressing Accessibility" stack and brainstorm your prompt.
+          Or, consider all groups of people from the "Recognizing Student Preferences" stack, or tools from 'Utilizing a Psychological Phenomena'.
         </p>
       </li>
     </ol>
@@ -76,51 +113,73 @@ body {
   <img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px" style="vertical-align: middle;">
 </a>
 <div style="height:100px;"></div>
-<div>
-  <div class="card">
+
+<div style="position: relative;">
+  <div class="card context">
+    <h2 class="cat_names context-title" style="left:-120px;top:145px;">Context</h2>
     <div class="card-name">Create an Activity</div>
     <div id="activity">
       Create an Activity
     </div>
     <a class="card-next" onclick="changeActivity()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
   </div>
-  <div class="card">
-    <div class="card-name">With a Teaching Technique</div>
-    <div id="technique">
-    With a Teaching Technique
-    </div>
-    <a class="card-next" onclick="changeTechnique()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
-  </div>
-  <div class="card">
-    <div class="card-name">To be Accessible</div>
-    <div id="access">
-      To be Accessible
-    </div>
-    <a class="card-next" onclick="changeAccess()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
-  </div>
-</div>
-<div>
-  <div class="card">
+
+  <div class="card context">
     <div class="card-name">For Students</div>
     <div id="student">
     For Students
   </div>
   <a class="card-next" onclick="changeStudents()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
   </div>
-  <div class="card">
-    <div class="card-name">Who have Preferences</div>
-    <div id="wants">
-    Who have Preferences
-  </div>
-  <a class="card-next" onclick="changeWants()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
-  </div>
-  <div class="card">
+
+  <div class="card context">
     <div class="card-name">To meet a Learning Objective</div>
     <div id="objective">
     To meet a Learning Objective
   </div>
   <a class="card-next" onclick="changeObjective()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
   </div>
+
+  <a class="flip-new-cats" onclick="changeContext()" style="background:#ADFFFF;">
+    <div>Flip New<br>Context</div>
+    <img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px">
+  </a>
+
+</div>
+<div style="position: relative;">
+
+
+  <div class="card spice">
+    <h2 class="cat_names spice-title" style="left:-210px;top:140px;">Considerations</h2>
+    <div class="card-name">While Adressing Accessibility</div>
+    <div id="access">
+      While Adressing Accessibility
+    </div>
+    <a class="card-next" onclick="changeAccess()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+
+  <div class="card spice">
+    <div class="card-name">Utilizing a Psychological Phenomena</div>
+    <div id="technique">
+    Utilizing a Psychological Phenomena
+    </div>
+    <a class="card-next" onclick="changeTechnique()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+
+  <div class="card spice">
+    <div class="card-name">Recognizing Student Preferences</div>
+    <div id="wants">
+    Recognizing Student Preferences
+  </div>
+  <a class="card-next" onclick="changeWants()"><img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px"></a>
+  </div>
+
+  <a class="flip-new-cats" onclick="changeConsiderations()" style="background:#A9EFB0;">
+    <div>Flip New<br>Considerations</div>
+    <img src="https://agranchelli.files.wordpress.com/2022/03/next.png" width="40px">
+  </a>
+
+
 </div>
 
 <div style="height:200px";></div>
@@ -129,7 +188,7 @@ body {
 
 <div style="height:100px;"></div>
 <p>
-  Version 0.2 //
+  Version 0.3 //
   Developed by Adrian Granchelli //
   2022
 </p>
@@ -205,15 +264,15 @@ const students = [
   ];
 
 const wants = [
-  'Who want to be together with people',
-  'Who want to be comfortable',
-  'Who want to enjoy the challenge of a new experience',
-  'Who want to find an opportunity to learn',
-  'Who want to do something active',
-  'Who want to seek meaning - to know why',
-  'Who want to seek information and facts - to know what',
-  'Who want to problem-solve - to know ‘how-it-works’',
-  'Who want to self discover/ to trial-and-error - to know ‘what if’'
+  'For those who want to be together with people',
+  'For those who want to be comfortable',
+  'For those who want to enjoy the challenge of a new experience',
+  'For those who want to find an opportunity to learn',
+  'For those who want to do something active',
+  'For those who want to seek meaning - to know why',
+  'For those who want to seek information and facts - to know what',
+  'For those who want to problem-solve - to know ‘how-it-works’',
+  'For those who want to self discover/ to trial-and-error - to know ‘what if’'
   ];
 
 const objectives = [
@@ -242,37 +301,37 @@ wantsBlock = document.getElementById('wants');
 objectiveBlock = document.getElementById('objective');
 
 function changeActivity() {
-  activityBlock.parentElement.style.background='#cff';
+  activityBlock.parentElement.style.background='#ADFFFF';
   var randomNumber = Math.floor(Math.random()*(activities.length));
   activityBlock.innerHTML = activities[randomNumber];
 }
 
 function changeTechnique() {
-  techniqueBlock.parentElement.style.background='#cff';
+  techniqueBlock.parentElement.style.background='#A9EFB0';
   var randomNumber = Math.floor(Math.random()*(techniques.length));
   techniqueBlock.innerHTML = techniques[randomNumber];
 }
 
 function changeAccess() {
-  accessBlock.parentElement.style.background='#cff';
+  accessBlock.parentElement.style.background='#A9EFB0';
   var randomNumber = Math.floor(Math.random()*(accesibilities.length));
   accessBlock.innerHTML = accesibilities[randomNumber];
 }
 
 function changeStudents() {
-  studentBlock.parentElement.style.background='#cff';
+  studentBlock.parentElement.style.background='#ADFFFF';
   var randomNumber = Math.floor(Math.random()*(students.length));
   studentBlock.innerHTML = students[randomNumber];
 }
 
 function changeWants() {
-  wantsBlock.parentElement.style.background='#cff';
+  wantsBlock.parentElement.style.background='#A9EFB0';
   var randomNumber = Math.floor(Math.random()*(wants.length));
   wantsBlock.innerHTML = wants[randomNumber];
 }
 
 function changeObjective() {
-  objectiveBlock.parentElement.style.background='#cff';
+  objectiveBlock.parentElement.style.background='#ADFFFF';
   var randomNumber = Math.floor(Math.random()*(objectives.length));
   objectiveBlock.innerHTML = objectives[randomNumber];
 }
@@ -284,6 +343,18 @@ function changeAll() {
   changeStudents();
   changeWants();
   changeObjective();
+}
+
+function changeContext() {
+  changeActivity();
+  changeStudents();
+  changeObjective();
+}
+
+function changeConsiderations() {
+  changeTechnique();
+  changeAccess();
+  changeWants();
 }
 
 </script>
